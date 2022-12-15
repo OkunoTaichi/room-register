@@ -19,5 +19,14 @@ use App\Http\Controllers\RoomController;
 //     return view('room.list');
 // });
 
+// 一覧表示
 Route::get('/', [RoomController::class, 'room'])->name('room');
+// 登録画面表示
+Route::get('/room/create', [RoomController::class, 'create'])->name('create');
+// 登録
+Route::post('/room/store', [RoomController::class, 'store'])->name('store');
+// 詳細表示
 Route::get('/room/{id}', [RoomController::class, 'detail'])->name('detail');
+// 編集表示
+Route::get('/edit/{id}', [RoomController::class, 'edit'])->name('edit');
+Route::post('/room/update', [RoomController::class, 'update'])->name('update');

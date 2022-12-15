@@ -14,6 +14,7 @@
                 <th>記事番号</th>
                 <th>タイトル</th>
                 <th>日付</th>
+                <th></th>
     
             </tr>
             @foreach($rooms as $room)
@@ -23,6 +24,12 @@
                     <a href="{{ route('room') }}/room/{{ $room['id'] }}">{{ $room['title'] }}</a>
                 </td>
                 <td>{{ $room['updated_at'] }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary">
+                        <a href="{{ route('room') }}/edit/{{ $room['id'] }}" style="color:#fff">編集</a>
+                    </button>
+                    <!-- <button type="button" class="btn btn-primary" onclick="location.href='{{ route('room') }}/edit/{{ $room['id'] }}'">編集</button> -->
+                </td>
        
             </tr>
             @endforeach
