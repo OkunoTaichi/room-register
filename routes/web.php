@@ -14,8 +14,10 @@ use App\Http\Controllers\RoomController;
 |
 */
 
-Route::get('/', function () {
-    return view('room.list');
-});
+// Route::get('/', function () {
 
-Route::get('/room', [RoomController::class, 'room'])->name('room');
+//     return view('room.list');
+// });
+
+Route::get('/', [RoomController::class, 'room'])->name('room');
+Route::get('/room/{id}', [RoomController::class, 'detail'])->name('detail');

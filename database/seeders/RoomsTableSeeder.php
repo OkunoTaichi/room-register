@@ -5,15 +5,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Room;
 
-class DatabaseSeeder extends Seeder
+class RoomsTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        Room::factory(10)->create();
+        //
+        Room::factory()->count(10)->create();  //この行を追加
     }
 }
