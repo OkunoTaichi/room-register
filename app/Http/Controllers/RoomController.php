@@ -97,7 +97,12 @@ class RoomController extends Controller
         \DB::beginTransaction();
         try{
             // データを更新
-            Room::where('id', $inputs['id'])->update(['title' => $inputs['title'],'content' => $inputs['content']]);
+            Room::where('id', $inputs['id'])->update([
+                'room_id' => $inputs['room_id'],
+                'title' => $inputs['title'],
+                'people' => $inputs['people'],
+                'content' => $inputs['content']
+            ]);
             
             \DB::commit();
         }catch(\Throwable $e){

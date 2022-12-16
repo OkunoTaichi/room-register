@@ -25,8 +25,10 @@ class RoomRequest extends FormRequest
     public function rules()
     {
         return [
+            'room_id' => 'required | numeric | max:100',
             'title' => 'required | max:100',
-            'content' => 'required'
+            'people' => 'required | numeric | max:100',
+            'content' => 'max:100',
         ];
     }
 }

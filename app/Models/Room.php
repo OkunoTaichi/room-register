@@ -15,7 +15,9 @@ class Room extends Model
     //可変項目
     protected $fillable = 
     [
+        'room_id',
         'title',
+        'people',
         'content'
     ];
 }

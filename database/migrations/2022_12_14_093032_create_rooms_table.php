@@ -16,9 +16,10 @@ class CreateRoomsTable extends Migration
         if(!Schema::hasTable('rooms')){
             Schema::create('rooms', function (Blueprint $table) {
                 $table->id();
-                // $table->integer('room_id');
-                $table->string('title',100);
-                $table->text('content');
+                $table->integer('room_id',1000);//部屋番号＿追加
+                $table->string('title',10);//部屋タイプ
+                $table->integer('people',10);//最大収容人数＿追加
+                $table->text('content');//特記事項
                 $table->timestamps();
             });
         }

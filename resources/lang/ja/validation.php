@@ -154,7 +154,9 @@ return [
     */
 
     'attributes' => [
-        'title' => 'タイトル',
+        'room_id' => '部屋番号',
+        'title' => '部屋タイプ',
+        'people' => '人数',
         'content' => '本文',
     ],
 
