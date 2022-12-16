@@ -2,8 +2,8 @@
 @section('title','一覧')
 @section('content')
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <h2>ブログ記事一覧</h2>
+    <div class="col-md-10 col-md-offset-2">
+        <h2>一覧</h2>
             @if(session('err_msg'))
             <p class="text-danger">
                 {{ session('err_msg') }}
@@ -14,6 +14,7 @@
                 <th>記事番号</th>
                 <th>タイトル</th>
                 <th>日付</th>
+                <th></th>
                 <th></th>
     
             </tr>
@@ -28,13 +29,27 @@
                     <button type="button" class="btn btn-primary">
                         <a href="{{ route('room') }}/edit/{{ $room['id'] }}" style="color:#fff">編集</a>
                     </button>
-                    <!-- <button type="button" class="btn btn-primary" onclick="location.href='{{ route('room') }}/edit/{{ $room['id'] }}'">編集</button> -->
                 </td>
+                <form method="POST" action="{{ route('delete', $room['id']) }}" onSubmit="return checkDelete()">
+                    @csrf
+                    <td>
+                        <button type="submit" class="btn btn-danger" onclick="">削除</button>
+                    </td>
+                </form>
        
             </tr>
             @endforeach
         </table>
     </div>
 </div>
+<script>
+    function checkDelete(){
+        if(window.confirm('削除してよろしいですか？')){
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
 @endsection('content')
 

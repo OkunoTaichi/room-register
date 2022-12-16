@@ -85,7 +85,7 @@ class RoomController extends Controller
         return view('room.edit',['room' => $room]);
     }
 
-        /**
+    /**
      * 更新する 
      * 
      * @return view
@@ -105,6 +105,29 @@ class RoomController extends Controller
             abort(500);
         }
         \Session::flash('err_msg' , '更新しました。');
+        return redirect( route('room') );
+    }
+
+
+    /**
+     * 削除する 
+     * @param int $id
+     * @return view
+     */
+    public function delete($id)
+    {
+        // データを受け取る
+        if(empty($id)){
+            \Session::flash('err_msg' , 'データがありません。');
+            return redirect( route('room') );
+        }
+        
+        try{
+            Room::destroy($id);
+        }catch(\Throwable $e){ 
+            abort(500);
+        }
+        \Session::flash('err_msg' , '削除しました。');
         return redirect( route('room') );
     }
 

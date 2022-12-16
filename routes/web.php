@@ -30,3 +30,5 @@ Route::get('/room/{id}', [RoomController::class, 'detail'])->name('detail');
 // 編集表示
 Route::get('/edit/{id}', [RoomController::class, 'edit'])->name('edit');
 Route::post('/room/update', [RoomController::class, 'update'])->name('update');
+// 削除
+Route::post('/room/delete/{id}', [RoomController::class, 'delete'])->name('delete');
